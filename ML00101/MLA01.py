@@ -11,8 +11,8 @@ y = []
 with open('wine.csv','r',encoding='utf-8') as csvf:
     r = csv.reader(csvf)
     for item in r:
-        X.append(item[1:])
-        y.append(item[0])
+        X.append(item[1:]) # data features
+        y.append(item[0]) # data labels
 
 from sklearn import model_selection
 
@@ -29,7 +29,7 @@ y_pred = clf.predict(X_test)
 accuracy = round(clf.score(X_test, y_test)*100,2)
 
 # compute accuracy of the classifier計算分類器的精確度
-print("Accuracy of the classifier =",  '{}'.format(accuracy)   , "%")
+print("Accuracy of the classifier = %.2f"%accuracy, "%")
 
 X_test1 =[[1.51, 1.73, 1.98, 20.15, 85, 2.2, 1.92, .32, 1.48, 2.94, 1, 3.57, 172]]
 X_test2 = [[14.23, 1.71, 2.43, 15.6, 127, 2.8, 3.06, .28, 2.29, 5.64, 1.04, 3.92, 1065]]
