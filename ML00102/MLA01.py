@@ -6,13 +6,13 @@ from sklearn import preprocessing, linear_model
 titanic = pd.read_csv("titanic.csv")
 print('raw data')
 # TODO
-mid_age = titanic['Age'].median()
+median_age = titanic['Age'].median()
 
 # 將年齡的空值填入年齡的中位數
 # TODO
-age_fillna = np.where(titanic['Age'].isnull(),mid_age,titanic['Age'])
+age_fillna = np.where(titanic['Age'].isnull(),median_age,titanic['Age'])
 titanic['Age'] = age_fillna
-print("年齡中位數="        ,mid_age)
+print("年齡中位數="        ,median_age)
 # TODO
 
 # 更新後資料
