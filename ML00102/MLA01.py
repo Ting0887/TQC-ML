@@ -33,7 +33,7 @@ y = titanic['Survived']
 model = linear_model.LogisticRegression()
 model.fit(X,y)
 
-print('截距=%.4f'%model.intercept_)
+print('截距=%.4f'%round(model.intercept_[0],4))
 print('迴歸係數=',model.coef_)
 
 
@@ -42,7 +42,7 @@ print('Confusion Matrix')
 # TODO
 pred = model.predict(X)
 print(pd.crosstab(pred,y))
-print('預測模型準確度:%.4f'%model.score(X, y))
+print('預測模型準確度:%.4f'%round(model.score(X, y),4))
 
 
 
