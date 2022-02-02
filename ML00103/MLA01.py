@@ -17,7 +17,7 @@ df_source = df.copy(deep=False)
 # X = df.iloc[:,0:df.shape[1]-1]
 # y = df.iloc[:,df.shape[1]
 # TODO
-
+print(df)
 
 # Convert string data to numerical data將字串資料轉換為數值資料
 # TODO
@@ -33,7 +33,7 @@ for name in df.columns:
 classifier = RandomForestClassifier(n_estimators=200,max_depth=8,random_state=7)
 # 注意取值範圍
 X = df_source.iloc[:,0:6]
-y = df_source.iloc[:,df.shape[1]-1]
+y = df_source.iloc[:,-1]
 classifier.fit(X,y)
 
 # # Cross validation交叉驗證
@@ -77,4 +77,3 @@ print("Training scores第一組第一筆數值:",'{:.4f}'.format(\
                                 math.floor(train_scores[0][0]*(10**4))/(10**4)))
 print("Validation scores最後一組第一筆數值:",'{:.4f}'.format(\
                                 math.floor(validation_scores[7][0]*(10**4))/(10**4)))
-
