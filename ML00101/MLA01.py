@@ -1,5 +1,4 @@
 import csv
-import pandas as pd
 from sklearn.model_selection import train_test_split
 
 input_file = 'wine.csv'
@@ -24,8 +23,6 @@ from sklearn.metrics import classification_report
 # TODO
 clf = DecisionTreeClassifier()
 clf.fit(X_train, y_train)
-y_pred = clf.predict(X_test)
-
 accuracy = round(clf.score(X_test, y_test)*100,2)
 
 # compute accuracy of the classifier計算分類器的精確度
@@ -37,9 +34,6 @@ X_test3 = [[13.71, 5.65, 2.45, 20.5, 95, 1.68, .61, .52, 1.06, 7.7, .64, 1.74, 7
 
 
 # TODO
-y_pred1 = clf.predict(X_test1)
-y_pred2 = clf.predict(X_test2)
-y_pred3 = clf.predict(X_test3)
-print('X_test1分類預測結果:',y_pred1)
-print('X_test2分類預測結果:',y_pred2)
-print('X_test3分類預測結果:',y_pred3)
+print('X_test1分類結果:%d'%clf.predict(X_test1,y_test))
+print('X_test2分類結果:%d'%clf.predict(X_test2,y_test))
+print('X_test3分類結果:%d'%clf.predict(X_test3,y_test))
