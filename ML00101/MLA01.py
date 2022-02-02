@@ -1,5 +1,4 @@
 import csv
-from sklearn.model_selection import train_test_split
 
 input_file = 'wine.csv'
 
@@ -15,10 +14,9 @@ with open('wine.csv','r',encoding='utf-8') as csvf:
 
 from sklearn import model_selection
 
-X_train, X_test, y_train, y_test = train_test_split(X, y,random_state=5,test_size=0.25)
+X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y,random_state=5,test_size=0.25)
 
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import classification_report
 
 # TODO
 clf = DecisionTreeClassifier()
