@@ -36,7 +36,6 @@ print("R_squared值=",r_squared)
 
 print("f_regresstion\n")
 (F,p_value) = f_regression(train_X,train_y)
-Column_P = pd.DataFrame(f_regression(train_X, NBApoints_data['3P'])[1],train_X.columns)
 print("P值=\n",p_value)
 print("\n")
 print("Pos的 P-value （P值）是否小於 0.05（信心水準 95%）",p_value[0]<0.05)
