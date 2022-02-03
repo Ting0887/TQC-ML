@@ -18,7 +18,7 @@ X_train, y_train = extract_features[features], extract_features['Type1']
 from sklearn.preprocessing import LabelEncoder
 # TODO
 label_encoder = LabelEncoder()
-encode_class = label_encoder.fit_transform(y_train)
+y_train = label_encoder.fit_transform(y_train)
 # 特徵標準化
 from sklearn.preprocessing import StandardScaler
 # TODO
@@ -50,5 +50,5 @@ print('F1-score:%.4f '%f1_score(y_train, y_pred,average='weighted'))
 # TODO
 new_data = [[100,75]]
 new_data = std.transform(new_data)
-print(model.predict(new_data))
-
+pred_label = label_encoder.inverse_transform(model.predict(new_data))
+print('預測分類結果:',pred_label)
