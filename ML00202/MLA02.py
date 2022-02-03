@@ -44,7 +44,7 @@ for eps in eps_grid:
 
 # Best params
 print("Best epsilon =",eps_best           )
-
+print("Best Silhouette = ",silhouette_scores_max) 
 # Associated model and labels for best epsilon
 model = model_best   # TODO
 labels = labels_best  # TODO
@@ -98,5 +98,5 @@ for eps in eps_grid:
         labels_best = labels
 
 # Best params
-print("Best epsilon =",eps_best           )
-
+print("Best epsilon =",eps_best)
+print("Best Silhouette = ",silhouette_scores_max) 
