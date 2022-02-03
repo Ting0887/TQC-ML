@@ -28,11 +28,11 @@ test_data = [[5,28,10]]
 NBApoints_linear_model_predict_result = NBApoints_linear_model.predict(train_X)
 print("三分球得球數=",NBApoints_linear_model_predict_result)
 
-print("三分球預測得球數=",NBApoints_linear_model.predict(test_data))
+print("三分球預測得球數=%.4f"%round(NBApoints_linear_model.predict(test_data)[0],4))
 
 from sklearn.metrics import r2_score
 r_squared = r2_score(train_y,y_pred)
-print("R_squared值=",r_squared)
+print("R_squared值=%.4f"%round(r_squared,4))
 
 print("f_regresstion\n")
 (F,p_value) = f_regression(train_X,train_y)
