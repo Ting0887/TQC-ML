@@ -99,11 +99,18 @@ print(X_test_std)
 # 上述分類器針對測試集進行預測，並計算分類錯誤的個數與準確度
 from sklearn.metrics import accuracy_score
 # TODO
+best_acc = 0
+min_error_num = 0
 for model in models:
     model.fit(X_train_std,y_train)
     y_pred = model.predict(X_test_std)
-    print('分類錯誤個數 = ',(y_test!=y_pred).sum())
-    print('四個分類器對測試集的最大分類準確度 = %.4f'%round(accuracy_score(y_test, y_pred),4))
+    error_num = (y_test!=y_pred).sum()
+    model_acc = round(accuracy_score(y_test, y_pred),4)
+    if model_acc > best_acc:
+        best_acc = model_acc
+        min_error_num = error_num
+print('四個分類器對測試集的準確度 = %.4f'%best_acc)
+print('分類錯誤個數 = ',min_error_num)
 # #############################################################################
     
 # 分別利用上述分類器預測分類
