@@ -23,7 +23,6 @@ y_train = preprocessing.LabelEncoder().fit_transform(y)
 # #########################################################################
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2,random_state=seed)
-X_train_score = X_train.copy(deep=False)
 # 特徵標準化
 from sklearn.preprocessing import StandardScaler
 std = StandardScaler().fit(X_train)
@@ -94,7 +93,7 @@ print('k折交叉驗證後的最大分類準確度平均值%.4f'%round(best_acc,
 # TODO
 
 std = StandardScaler()
-X_test_std = std.fit(X_train_score).transform(X_test)
+X_test_std = std.fit(X_train).transform(X_test)
 print(X_test_std)
 # 上述分類器針對測試集進行預測，並計算分類錯誤的個數與準確度
 from sklearn.metrics import accuracy_score
@@ -110,7 +109,7 @@ for model in models:
         best_acc = model_acc
         min_error_num = error_num
 print('四個分類器對測試集的準確度 = %.4f'%best_acc)
-print('分類錯誤個數 = ',min_error_num)
+print('最小分類錯誤個數 = ',min_error_num)
 # #############################################################################
     
 # 分別利用上述分類器預測分類
@@ -118,5 +117,5 @@ print("===== 預測分類 ======")
 # TODO
 new_data =[[100,70]]
 data_df = pd.DataFrame(new_data)
-data_std = std.fit(X_train_score).transform(data_df)
+data_std = std.fit(X_train).transform(data_df)
 print('new data predict result = ',vote.predict(data_std))
