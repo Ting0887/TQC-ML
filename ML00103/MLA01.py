@@ -55,7 +55,7 @@ for i in range(len(input_data)):
 
 y_pred = classifier.predict([result_data])
 # car為第六個
-namelist = list(label_encoder.fit(df.iloc[:,6]).classes_)
+namelist = label_encoder.fit(df.iloc[:,6]).classes_
 # # Predict and print output for a particular datapoint
 # # TODO
 print("Output class=",namelist[int(y_pred)])
