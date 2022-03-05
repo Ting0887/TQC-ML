@@ -36,5 +36,17 @@ centers = kmeans_fit.cluster_centers_
 kmeans_predict=kmeans_fit.predict(X)
 print("cluster_centers=",centers)
 
+min_x = centers[0][0]
+max_y = centers[0][1]
+for center in centers:
+    x = center[0]
+    y = center[1]
+    if x < min_x:
+        min_x = x
+    if y > max_y:
+        max_y = y
+print('最小中心點X : ',min_x)
+print('最大中心點Y : ',max_y)
+
 
 
