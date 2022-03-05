@@ -10,8 +10,7 @@ with open(input_file,'r') as txtf:
     for line in txtf.readlines():
         data = [float(i) for i in line.split(',')]
         X.append(data)
-X = np.array(X)    
-print(X)
+
 # Find the best epsilon 
 eps_grid = np.linspace(0.3,1.2,num=10)
 silhouette_scores = []
@@ -25,7 +24,6 @@ for eps in eps_grid:
     # min_samples = 5
     # ################
     
-
     # Extract labels 提取標籤
     labels = model.labels_
 
