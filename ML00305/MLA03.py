@@ -20,7 +20,6 @@ df = pd.read_csv('Taipei_house.csv')
 # 對"行政區"進行 one-hot encoding
 # TODO
 df = pd.get_dummies(df,columns=['行政區'])
-print(df)
 # 處理"車位類別"
 # TODO
 df['車位類別'] = [0 if x=='無' else 1 for x in df['車位類別']]
@@ -54,8 +53,7 @@ features= ['土地面積', '建物總面積', '屋齡', '樓層', '總樓層', '
 target = '總價'  
 # TODO
 from sklearn.model_selection import train_test_split
-X,y = df.loc[:,features],df.loc[:,[target]]
-print(y)
+X,y = df.loc[:,features],df.loc[:,target]
 X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2,random_state=seed)
 
 lst_model, lst_info = [], []
@@ -115,7 +113,7 @@ X_poly = poly_features.fit_transform(X)
 #features= ['土地面積', '建物總面積', '屋齡', '樓層', '總樓層', '用途', 
 #           '房數', '廳數', '衛數', '電梯', '車位類別', 
 #           '行政區_信義區', '行政區_大安區', '行政區_文山區','行政區_松山區']
-new_data = np.array([36, 99, 32, 4, 4, 0, 3, 2, 1, 0, 0, 0, 0, 0, 1]).reshape(1,-1)
+new_data = [[36, 99, 32, 4, 4, 0, 3, 2, 1, 0, 0, 0, 0, 0, 1]]
 df_new = pd.DataFrame(new_data,columns=features)
 df_poly_feat = poly_features.fit_transform(df_new)
 # TODO
