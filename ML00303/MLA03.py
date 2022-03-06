@@ -16,7 +16,8 @@ y = df.loc[:,'Type1'] #TODO     Type1 欄位
 # 編碼 Type1
 from sklearn import preprocessing
 # TODO
-y_train = preprocessing.LabelEncoder().fit_transform(y)
+label_encoder = preprocessing.LabelEncoder()
+y = label_encoder.fit_transform(y)
 # 切分訓練集、測試集，除以下參數設定外，其餘為預設值
 # #########################################################################
 # X, y, test_size=0.2, random_state=seed
@@ -116,4 +117,5 @@ print("===== 預測分類 ======")
 # TODO
 new_data =[[100,70]]
 data_std = std.fit(X_train).transform(new_data)
-print('new data predict result = ',vote.predict(data_std))
+pred_label = label_encoder.inverse_transform(vote.predict(data_std))
+print('new data predict result = ',pred_label)
