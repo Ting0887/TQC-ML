@@ -60,9 +60,8 @@ def kfold_cross_validation(scalar, model):
         k 折交叉驗證的準確度(accuracy)平均值
     """
     # 建立管線，用來進行(標準化 -> 機器學習模型)
-    make_pipeline(scalar,model)  #TODO
-    pipeline = Pipeline(steps=[('StandardScalar', scalar)
-                               ,('model',model)])
+   
+    pipeline =  make_pipeline(scalar,model)  #TODO
     # 產生 k 折交叉驗證，除以下參數設定外，其餘為預設值
     # #########################################################################
     # n_splits=5, shuffle=True, random_state=seed
@@ -94,7 +93,7 @@ print('k折交叉驗證後的最大分類準確度平均值%.4f'%round(best_acc,
 
 std = StandardScaler()
 X_test_std = std.fit(X_train).transform(X_test)
-print(X_test_std)
+
 # 上述分類器針對測試集進行預測，並計算分類錯誤的個數與準確度
 from sklearn.metrics import accuracy_score
 # TODO
@@ -116,6 +115,5 @@ print('最小分類錯誤個數 = ',min_error_num)
 print("===== 預測分類 ======")
 # TODO
 new_data =[[100,70]]
-data_df = pd.DataFrame(new_data)
-data_std = std.fit(X_train).transform(data_df)
+data_std = std.fit(X_train).transform(new_data)
 print('new data predict result = ',vote.predict(data_std))
