@@ -4,8 +4,6 @@
 # TODO
 from sklearn.datasets import load_boston
 from sklearn.model_selection import train_test_split
-import pandas as pd
-import numpy as np
 import math
 boston = load_boston()
 # MEDV即預測目標向量
