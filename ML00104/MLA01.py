@@ -49,5 +49,6 @@ print('F1-score:%.4f '%f1_score(y_train, y_pred,average='weighted'))
 # 預測未知寶可夢的 Type1
 # TODO
 new_data = [[100,75]]
-pred_label = label_encoder.inverse_transform(model.predict(new_data))
+new_data_df = std.fit(X_train).transform(new_data)
+pred_label = label_encoder.inverse_transform(model.predict(new_data_df))
 print('預測分類結果:',pred_label)
