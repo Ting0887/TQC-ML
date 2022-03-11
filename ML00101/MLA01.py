@@ -32,6 +32,6 @@ X_test3 = [[13.71, 5.65, 2.45, 20.5, 95, 1.68, .61, .52, 1.06, 7.7, .64, 1.74, 7
 
 
 # TODO
-print('X_test1分類結果:%d'%clf.predict(X_test1,y_test))
-print('X_test2分類結果:%d'%clf.predict(X_test2,y_test))
-print('X_test3分類結果:%d'%clf.predict(X_test3,y_test))
+print('X_test1分類結果:%d'%clf.predict(X_test1))
+print('X_test2分類結果:%d'%clf.predict(X_test2))
+print('X_test3分類結果:%d'%clf.predict(X_test3))
